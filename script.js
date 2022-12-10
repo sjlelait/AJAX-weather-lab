@@ -13,8 +13,7 @@ function handleGetData(event) {
   // calling preventDefault() on a 'submit' event will prevent a page refresh
   userInput = $input.val()
   $.ajax({
-    url: "http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={0ced26b56d067de66888363b2e65cb42}" 
-    + userInput,
+    url: "http://api.openweathermap.org/geo/1.0/direct?q=Fort+Collins,CO,&appid=0ced26b56d067de66888363b2e65cb42" + userInput,
   }).then(
     (data) => {
       weatherData = data
@@ -27,9 +26,10 @@ function handleGetData(event) {
 }
 
 function render() {
-  $title.text(movieData.Title)
-  $year.text(movieData.Year)
-  $rated.text(movieData.Rated)
+  $weatherFor.text(weatherData.weatherFor)
+  $temperature.text(weatherData.temperature)
+  $feelsLike.text(weatherData.feelsLike)
+  $weather.text(weatherData.weather)
 }
 
 
